@@ -1,14 +1,14 @@
-import webVitals from 'web-vitals';
-
-const reportWebVitals = (onPerfEntry) => {
+const reportWebVitals = async (onPerfEntry) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
-    webVitals.then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
-    });
+    await import('web-vitals').then(
+      ({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+        getCLS(onPerfEntry);
+        getFID(onPerfEntry);
+        getFCP(onPerfEntry);
+        getLCP(onPerfEntry);
+        getTTFB(onPerfEntry);
+      },
+    );
   }
 };
 
