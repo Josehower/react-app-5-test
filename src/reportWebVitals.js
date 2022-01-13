@@ -1,14 +1,14 @@
-const reportWebVitals = async (onPerfEntry) => {
+const reportWebVitals = (onPerfEntry) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
-    await import('web-vitals').then(
-      ({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+    import('web-vitals')
+      .then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
         getCLS(onPerfEntry);
         getFID(onPerfEntry);
         getFCP(onPerfEntry);
         getLCP(onPerfEntry);
         getTTFB(onPerfEntry);
-      },
-    );
+      })
+      .catch((err) => console.log(err));
   }
 };
 
